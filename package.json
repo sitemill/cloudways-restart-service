@@ -13,6 +13,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "devDependencies": {
+    "@actions/core": "^1.4.0",
+    "@actions/github": "^5.0.0"
+  },
   "bugs": {
     "url": "https://github.com/sitemill/cloudways-webroot-action/issues"
   },
