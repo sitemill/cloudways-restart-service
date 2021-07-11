@@ -1,0 +1,24 @@
+name: 'Cloudways - Restart Service'
+description: 'Restarts a Cloudways service'
+inputs:
+  email:
+    description: 'Cloudways account e-mail'
+    required: true
+  api_key:
+    description: 'Cloudways api key'
+    required: true
+  server_id:
+    description: 'The ID of the Cloudways server'
+    required: true
+  service:
+    description: 'Which service to restart'
+    required: true
+outputs:
+  message:
+    description: 'The returned message'
+runs:
+  using: 'node12'
+  main: 'index.js'
+branding:
+  icon: 'repeat'
+  color: 'blue'

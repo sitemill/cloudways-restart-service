@@ -1,0 +1,18 @@
+on: [push]
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: Test restart PHP FPM
+    steps:
+      # To use this repository's private action,
+      # you must check out the repository
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Restart PHP-FPM
+        uses: ./ # Uses an action in the root directory
+        with:
+          email: ${{secrets.EMAIL}}
+          api_key: ${{secrets.API_KEY}}
+          server_id: ${{secrets.SERVER_ID}}
+          service: ${{secrets.SERVICE}}
