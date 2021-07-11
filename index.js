@@ -8,7 +8,7 @@ const api_key = core.getInput('api_key');
 
 try {
     fetch(apiUrl + `/oauth/access_token?email=${email}&api_key=${api_key}`, function(error, meta, body){
-        console.log(body.access_token);
+        console.log(body.json());
     });
 } catch (error) {
     core.setFailed(error.message);
