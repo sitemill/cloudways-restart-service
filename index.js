@@ -11,7 +11,22 @@ var token = '';
 
 axios.get(apiUrl + `/oauth/access_token?email=${email}&api_key=${api_key}`)
     .then(function(response) {
-         token = response.data.access_token;
+        axios.post(apiUrl + `/service/state`, {
+                server_id: `${server_id}`,
+                service: `${service}`,
+                state: 'restart',
+                headers: {
+                    Authorization: 'Bearer ' + response.data.access_token;
+                }
+            })
+            .then(function(response) {
+                console.log(response.data);
+            })
+            .catch(function(error) {
+                core.setFailed(error);
+            })
+            .then(function() {
+            });
     })
     .catch(function(error) {
         // handle error
@@ -21,20 +36,5 @@ axios.get(apiUrl + `/oauth/access_token?email=${email}&api_key=${api_key}`)
 
     });
 
-// axios.post(apiUrl + `/service/state`, {
-//         server_id: `${server_id}`,
-//         service: `${service}`,
-//         state: 'restart',
-//         headers: {
-//             Authorization: 'Bearer LWPTmmJMNRWVWnzkiWfjDFZET20U9t'
-//         }
-//     })
-//     .then(function(response) {
-//         console.log(response.data);
-//     })
-//     .catch(function(error) {
-//         core.setFailed(error);
-//     })
-//     .then(function() {
-//     });
+
 
