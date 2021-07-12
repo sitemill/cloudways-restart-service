@@ -14,14 +14,14 @@ axios.get(apiUrl + `/oauth/access_token?email=${email}&api_key=${api_key}`)
 
         axios.post(apiUrl + `/service/state?server_id=${server_id}&service=${service}&state=restart`, {},{
                 headers: {
-                    Authorization: 'Bearesr ' + response.data.access_token
+                    Authorization: 'Bearer ' + response.data.access_token
                 }
             })
             .then(function(response) {
                 console.log(response.data.service_status.status);
             })
             .catch(function(error) {
-                core.setFailed(error.data.error_description);
+                core.setFailed(response.data.error_description);
             })
             .then(function() {
             });
