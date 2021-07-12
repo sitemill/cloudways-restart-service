@@ -25,6 +25,7 @@ axios.get(apiUrl + `/oauth/access_token?email=${email}&api_key=${api_key}`)
                 console.log(response.data);
             })
             .catch(function(error) {
+                console.log(error);
                 core.setFailed(error);
             })
             .then(function() {
