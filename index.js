@@ -14,7 +14,7 @@ axios.get(apiUrl + `/oauth/access_token?email=${email}&api_key=${api_key}`)
 
         axios.post(apiUrl + `/service/state?server_id=${server_id}&service=${service}&state=restart`, {},{
                 headers: {
-                    Authorization: 'Bearer ' + response.data.access_token
+                    Authorization: 'Bearesr ' + response.data.access_token
                 }
             })
             .then(function(response) {
@@ -27,7 +27,6 @@ axios.get(apiUrl + `/oauth/access_token?email=${email}&api_key=${api_key}`)
             });
     })
     .catch(function(error) {
-        // handle error
         core.setFailed(error);
     })
     .then(function() {
