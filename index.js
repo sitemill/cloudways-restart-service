@@ -7,10 +7,11 @@ const email = core.getInput('email');
 const api_key = core.getInput('api_key');
 const server_id = core.getInput('server_id');
 const service = core.getInput('service');
+var token = '';
 
 axios.get(apiUrl + `/oauth/access_token?email=${email}&api_key=${api_key}`)
     .then(function(response) {
-        var token = response.data.access_token;
+         token = response.data.access_token;
     })
     .catch(function(error) {
         // handle error
