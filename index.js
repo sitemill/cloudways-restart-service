@@ -13,10 +13,7 @@ axios.get(apiUrl + `/oauth/access_token?email=${email}&api_key=${api_key}`)
     .then(function(response) {
         console.log('request: ' + apiUrl + `/service/state`);
         console.log('token: ' + response.data.access_token);
-        axios.post(apiUrl + `/service/state`, {
-                server_id: `${server_id}`,
-                service: `${service}`,
-                state: 'restart',
+        axios.post(apiUrl + `/service/state?server_id=${server_id}&service=${service}&state=restart`, {},{
                 headers: {
                     Authorization: 'Bearer ' + response.data.access_token
                 }
