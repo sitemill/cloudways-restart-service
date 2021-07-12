@@ -16,10 +16,10 @@
   "devDependencies": {
     "@actions/core": "^1.4.0",
     "@actions/github": "^5.0.0",
-    "fetch": "^1.1.0"
+    "axios": "^0.21.1"
   },
   "bugs": {
     "url": "https://github.com/sitemill/cloudways-webroot-action/issues"
   },
-  "homepage": "https://github.com/sitemill/cloudways-webroot-action#readme"
+  "homepage": "https://github.com/sitemill/cloudways-webroot-action#readme",
 }
