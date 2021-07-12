@@ -21,13 +21,13 @@ axios.get(apiUrl + `/oauth/access_token?email=${email}&api_key=${api_key}`)
 
     });
 
-axios.get(apiUrl + `/service/state?server_id=${server_id}&service=${service}&state=restart`, {
+axios.post(apiUrl + `/service/state?server_id=${server_id}&service=${service}&state=restart`, {
         headers: {
             Authorization: 'Bearer ' + token
         }
     })
     .then(function(response) {
-        console.log(response);
+        console.log(response.data);
     })
     .catch(function(error) {
         core.setFailed(error);
