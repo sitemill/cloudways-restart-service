@@ -7,9 +7,11 @@ const email = core.getInput('email');
 const api_key = core.getInput('api_key');
 
 try {
-    fetch(apiUrl + `/oauth/access_token?email=${email}&api_key=${api_key}`, function(error, meta, body){
-        console.log(body.json());
-    });
+    let response = await fetch(apiUrl + `/oauth/access_token?email=${email}&api_key=${api_key}`);
+    let data = await response.text();
+    console.log(data);
+    console.log('status: ' + response.status);
+    console.log('statusText: ' + response.statusText);
 } catch (error) {
     core.setFailed(error.message);
 }
