@@ -7,15 +7,28 @@ const email = core.getInput('email');
 const api_key = core.getInput('api_key');
 
 
-axios.get(apiUrl + `/oauth/access_token?email=${email}&api_keys=${api_key}`)
+axios.get(apiUrl + `/oauth/access_token?email=${email}&api_key=${api_key}`)
     .then(function(response) {
-        // handle success
-        console.log(response.data.access_token);
+        var token = response.data.access_token;
     })
     .catch(function(error) {
         // handle error
         core.setFailed(error);
     })
     .then(function() {
-        // always executed
+        axios.get(apiUrl + `/service/state?server_id=${server_id}&service=${service}&state=restart`, {
+                headers: {
+                    Authorization: 'Bearer ' + token
+                }
+            })
+            .then(function(response) {
+                console.log(response);
+            })
+            .catch(function(error) {
+                core.setFailed(error);
+            })
+            .then(function() {
+            });
     });
+
+
