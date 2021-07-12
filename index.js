@@ -16,7 +16,7 @@ axios.get(apiUrl + `/oauth/access_token?email=${email}&api_key=${api_key}`)
                 service: `${service}`,
                 state: 'restart',
                 headers: {
-                    Authorization: 'Bearer ' + response.data.access_token;
+                    Authorization: 'Bearer ' + response.data.access_token
                 }
             })
             .then(function(response) {
