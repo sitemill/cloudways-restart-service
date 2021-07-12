@@ -8,10 +8,8 @@ const api_key = core.getInput('api_key');
 const server_id = core.getInput('server_id');
 const service = core.getInput('service');
 
-
 axios.get(apiUrl + `/oauth/access_token?email=${email}&api_key=${api_key}`)
     .then(function(response) {
-
         axios.post(apiUrl + `/service/state?server_id=${server_id}&service=${service}&state=restart`, {},{
                 headers: {
                     Authorization: 'Bearesr ' + response.data.access_token
@@ -23,15 +21,9 @@ axios.get(apiUrl + `/oauth/access_token?email=${email}&api_key=${api_key}`)
             .catch(function(error) {
                 core.setFailed(error.response.data.error_description);
             })
-            .then(function() {
-            });
     })
     .catch(function(error) {
         core.setFailed(error);
     })
-    .then(function() {
-
-    });
-
 
 
