@@ -11,18 +11,16 @@ const service = core.getInput('service');
 
 axios.get(apiUrl + `/oauth/access_token?email=${email}&api_key=${api_key}`)
     .then(function(response) {
-        console.log('request: ' + apiUrl + `/service/state`);
-        console.log('token: ' + response.data.access_token);
+
         axios.post(apiUrl + `/service/state?server_id=${server_id}&service=${service}&state=restart`, {},{
                 headers: {
                     Authorization: 'Bearer ' + response.data.access_token
                 }
             })
             .then(function(response) {
-                console.log(response.data);
+                console.log(response.data.service_status.status);
             })
             .catch(function(error) {
-                console.log(error);
                 core.setFailed(error);
             })
             .then(function() {
