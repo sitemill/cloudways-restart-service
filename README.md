@@ -1,4 +1,4 @@
-# Cloudways - restart service actions
+# Cloudways - restart service action
 A GitHub Action to restart a Cloudways service. Useful for restarting php-fpm in an atomic deployment pipeline.
 
 ## Example
