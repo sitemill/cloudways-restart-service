@@ -12,7 +12,7 @@ axios.get(apiUrl + `/oauth/access_token?email=${email}&api_key=${api_key}`)
     .then(function(response) {
         axios.post(apiUrl + `/service/state?server_id=${server_id}&service=${service}&state=restart`, {},{
                 headers: {
-                    Authorization: 'Bearesr ' + response.data.access_token
+                    Authorization: 'Bearer ' + response.data.access_token
                 }
             })
             .then(function(response) {
