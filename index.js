@@ -10,7 +10,7 @@ try {
     axios.get(apiUrl + `/oauth/access_token?email=${email}&api_key=${api_key}`)
         .then(function (response) {
             // handle success
-            console.log(response);
+            console.log(response.data.access_token);
         })
         .catch(function (error) {
             // handle error

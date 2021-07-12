@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sitemill/cloudways-webroot-action.git"
+    "url": "git+https://github.com/sitemill/cloudways-restart-service.git"
   },
   "keywords": [],
   "author": "",
@@ -19,7 +19,7 @@
     "axios": "^0.21.1"
   },
   "bugs": {
-    "url": "https://github.com/sitemill/cloudways-webroot-action/issues"
+    "url": "https://github.com/sitemill/cloudways-restart-service/issues"
   },
-  "homepage": "https://github.com/sitemill/cloudways-webroot-action#readme"
+  "homepage": "https://github.com/sitemill/cloudways-restart-service#readme"
 }
