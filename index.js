@@ -16,19 +16,20 @@ axios.get(apiUrl + `/oauth/access_token?email=${email}&api_key=${api_key}`)
         core.setFailed(error);
     })
     .then(function() {
-        axios.get(apiUrl + `/service/state?server_id=${server_id}&service=${service}&state=restart`, {
-                headers: {
-                    Authorization: 'Bearer ' + token
-                }
-            })
-            .then(function(response) {
-                console.log(response);
-            })
-            .catch(function(error) {
-                core.setFailed(error);
-            })
-            .then(function() {
-            });
+
     });
 
+axios.get(apiUrl + `/service/state?server_id=${server_id}&service=${service}&state=restart`, {
+        headers: {
+            Authorization: 'Bearer ' + token
+        }
+    })
+    .then(function(response) {
+        console.log(response);
+    })
+    .catch(function(error) {
+        core.setFailed(error);
+    })
+    .then(function() {
+    });
 

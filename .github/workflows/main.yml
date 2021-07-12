@@ -15,4 +15,4 @@ jobs:
           email: ${{secrets.EMAIL}}
           api_key: ${{secrets.API_KEY}}
           server_id: ${{secrets.SERVER_ID}}
-          service: ${{secrets.SERVICE}}
+          service: php7.4-fpm
