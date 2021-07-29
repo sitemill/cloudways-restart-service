@@ -7,8 +7,8 @@ You can obtain the Server ID by looking at the URL for respective server, e.g: `
 
 ```
 steps:
-  - name: Update webroot
-    uses: sitemill/cloudways-webroot-action@v1.0.0
+  - name: Restart PHP FPM
+    uses: sitemill/cloudways-restart-service@v1.0.0
     with:
       email: your@email.com
       api_key: <apiKey>
